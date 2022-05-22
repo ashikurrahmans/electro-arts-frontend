@@ -1,12 +1,21 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import { themeChange } from "theme-change";
 import logo from "../../assets/images/logo.png";
+import auth from "./../../Firebase.init";
 
 const Menu = ({ children }) => {
+  const [user, loading, error] = useAuthState(auth);
+
   useEffect(() => {
     themeChange(false);
   }, []);
+
+  const logout = () => {
+    signOut(auth);
+  };
 
   const menuItems = (
     <>
@@ -30,11 +39,26 @@ const Menu = ({ children }) => {
           Contact
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/login" className="rounded-lg mr-2">
-          LogIn
-        </NavLink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <NavLink to="/dashboard" className="rounded-lg mr-2">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={""} className="rounded-lg mr-2" onClick={logout}>
+              SignOut
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <li>
+          <NavLink to="/login" className="rounded-lg mr-2">
+            LogIn
+          </NavLink>
+        </li>
+      )}
 
       <li>
         <label className="swap swap-rotate">

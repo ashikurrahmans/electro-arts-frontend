@@ -4,3 +4,4 @@
    - Daizy UI
 4. Firebase
 5. Firebase hooks
+6. React Icons
