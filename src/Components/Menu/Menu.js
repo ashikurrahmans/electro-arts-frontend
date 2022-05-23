@@ -5,9 +5,13 @@ import { NavLink } from "react-router-dom";
 import { themeChange } from "theme-change";
 import logo from "../../assets/images/logo.png";
 import auth from "./../../Firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Menu = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+
+  console.log(user);
 
   useEffect(() => {
     themeChange(false);
@@ -35,6 +39,11 @@ const Menu = ({ children }) => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/blog" className="rounded-lg mr-2">
+          Blog
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/contact" className="rounded-lg mr-2">
           Contact
         </NavLink>
@@ -46,11 +55,39 @@ const Menu = ({ children }) => {
               Dashboard
             </NavLink>
           </li>
-          <li>
-            <NavLink to={""} className="rounded-lg mr-2" onClick={logout}>
+          {/* <li>
+            <NavLink to={""} className="rounded-lg mr-2">
               SignOut
             </NavLink>
-          </li>
+          </li> */}
+          <div className="dropdown dropdown-end text-black">
+            <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  src={
+                    user.photoURL
+                      ? user.photoURL
+                      : "https://api.lorem.space/image/face?hash=33791"
+                  }
+                  alt={user?.displayName}
+                />
+              </div>
+            </label>
+            <ul
+              tabindex="0"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60"
+            >
+              <li>
+                <span className="justify-between">{user?.displayName}</span>
+              </li>
+              <li>
+                <sapn className="text-sm">{user?.email || guser?.email}</sapn>
+              </li>
+              <li>
+                <span onClick={logout}>Logout</span>
+              </li>
+            </ul>
+          </div>
         </>
       ) : (
         <li>

@@ -10,6 +10,8 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import RequiredAuth from "./Components/Authentication/RequiredAuth";
 import ForgetPassword from "./Components/Authentication/ForgetPassword";
 import SingleProduct from "./Components/Home/Products/SingleProduct";
+import Footer from "./Components/Footer/Footer";
+import Blog from "./Components/Blog/Blog";
 
 function App() {
   return (
@@ -31,9 +33,11 @@ function App() {
           />
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/contact" element={<Contact></Contact>} />
+          <Route path="/blog" element={<Blog></Blog>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Menu>
+      <Footer></Footer>
     </div>
   );
 }

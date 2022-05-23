@@ -69,10 +69,7 @@ const Product = ({ product }) => {
                 <p className="mt-1 text-red-600 text-xl font-bold">${price}</p>
                 <button
                   className="ml-16 flex  text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-                  // onClick={() => navigate(`/product/${id}`)}
-                  onClick={() => {
-                    console.log("object");
-                  }}
+                  onClick={() => navigate(`/product/${id}`)}
                 >
                   Buy
                 </button>

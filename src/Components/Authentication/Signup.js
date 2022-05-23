@@ -23,8 +23,8 @@ const Signup = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     createUserWithEmailAndPassword(auth, email, password);
-    toast("Please verfiy your email address..");
-    sendEmailVerification();
+    // toast("Please verfiy your email address..");
+    // sendEmailVerification();
   };
 
   let location = useLocation();

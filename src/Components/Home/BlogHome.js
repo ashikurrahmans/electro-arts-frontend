@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Blog = () => {
+const BlogHome = () => {
   return (
     <>
       <h5 className="text-center text-gray-900 font-bold text-4xl tracking-tight mt-6 capitalize">
@@ -209,4 +209,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogHome;
