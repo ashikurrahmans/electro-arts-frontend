@@ -6,7 +6,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useReviews();
   return (
     <>
-      <h5 class="text-center text-gray-900 font-bold text-4xl tracking-tight mt-6 capitalize">
+      <h5 className="text-center text-gray-900 font-bold text-4xl tracking-tight mt-6 capitalize">
         Customers Feedback
       </h5>
       <p className="w-4/12 mx-auto text-center my-4">

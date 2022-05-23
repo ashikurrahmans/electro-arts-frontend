@@ -9,6 +9,7 @@ import Contact from "./Components/Contact/Contact";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import RequiredAuth from "./Components/Authentication/RequiredAuth";
 import ForgetPassword from "./Components/Authentication/ForgetPassword";
+import SingleProduct from "./Components/Home/Products/SingleProduct";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
               </RequiredAuth>
             }
           />
-          <Route path="/product/:id" element={<ForgetPassword />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
