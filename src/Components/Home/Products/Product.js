@@ -1,10 +1,10 @@
 import React from "react";
 
 const Product = ({ product }) => {
-  const { name, category, price, stock, img, quantity } = product;
+  const { id, name, category, price, stock, img, quantity } = product;
   return (
     <div>
-      <div className="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center">
+      {/* <div className="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center">
         <div className="bg-white rounded-lg mt-5">
           <img src={img} className="h-40 w-72 rounded-md" alt="" />
         </div>
@@ -44,7 +44,35 @@ const Product = ({ product }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-6 mx-auto">
+          <div className="flex flex-wrap -m-4">
+            <a class="block relative h-48 rounded overflow-hidden">
+              <img
+                alt="ecommerce"
+                class="object-cover object-center w-full h-full block"
+                src={img}
+              />
+            </a>
+            <div className="mt-4">
+              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                {category}
+              </h3>
+              <h2 className="text-gray-900 title-font text-lg font-medium">
+                {name}
+              </h2>
+              <div className="flex">
+                <p className="mt-1 text-red-600 text-xl font-bold">${price}</p>
+                <button class="ml-16 flex  text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                  Buy
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

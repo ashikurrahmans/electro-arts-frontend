@@ -19,14 +19,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/contact"
-            element={
-              <RequiredAuth>
-                <Contact />
-              </RequiredAuth>
-            }
-          />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route
             path="/dashboard"
@@ -36,6 +28,8 @@ function App() {
               </RequiredAuth>
             }
           />
+          <Route path="/product/:id" element={<ForgetPassword />} />
+          <Route path="/contact" element={<Contact></Contact>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Menu>

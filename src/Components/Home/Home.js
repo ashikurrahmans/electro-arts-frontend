@@ -5,16 +5,19 @@ import Reviews from "./AllReviews/Reviews/Reviews";
 import Footer from "../Footer/Footer";
 import AllProducts from "./Products/AllProducts";
 import BusinessSummary from "./BusinessSummary";
+import Heros from "./Heros";
+import Blog from "./Blog";
 
 const Home = () => {
   return (
     <div>
-      <Hero></Hero>
+      <Heros></Heros>
       {/* <BusinessSummary2></BusinessSummary2> */}
       <div className="container mx-auto">
         <AllProducts></AllProducts>
         <BusinessSummary></BusinessSummary>
         <IconsCard></IconsCard>
+        <Blog></Blog>
         <Reviews></Reviews>
       </div>
       <Footer></Footer>
