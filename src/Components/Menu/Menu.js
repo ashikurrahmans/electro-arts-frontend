@@ -11,8 +11,6 @@ const Menu = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
-  console.log(user);
-
   useEffect(() => {
     themeChange(false);
   }, []);
@@ -61,7 +59,7 @@ const Menu = ({ children }) => {
             </NavLink>
           </li> */}
           <div className="dropdown dropdown-end text-black">
-            <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+            <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
                   src={
@@ -74,14 +72,14 @@ const Menu = ({ children }) => {
               </div>
             </label>
             <ul
-              tabindex="0"
+              tabIndex="0"
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60"
             >
               <li>
                 <span className="justify-between">{user?.displayName}</span>
               </li>
               <li>
-                <sapn className="text-sm">{user?.email || guser?.email}</sapn>
+                <span className="text-sm">{user?.email || guser?.email}</span>
               </li>
               <li>
                 <span onClick={logout}>Logout</span>

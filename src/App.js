@@ -12,6 +12,7 @@ import ForgetPassword from "./Components/Authentication/ForgetPassword";
 import SingleProduct from "./Components/Home/Products/SingleProduct";
 import Footer from "./Components/Footer/Footer";
 import Blog from "./Components/Blog/Blog";
+import Checkout from "./Components/Checkout/Checkout";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
+          <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/contact" element={<Contact></Contact>} />
+          <Route path="/blog" element={<Blog></Blog>} />
           <Route
             path="/dashboard"
             element={
@@ -31,9 +35,14 @@ function App() {
               </RequiredAuth>
             }
           />
-          <Route path="/product/:id" element={<SingleProduct />} />
-          <Route path="/contact" element={<Contact></Contact>} />
-          <Route path="/blog" element={<Blog></Blog>} />
+          <Route
+            path="product/:id/checkout"
+            element={
+              <RequiredAuth>
+                <Checkout />
+              </RequiredAuth>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Menu>

@@ -185,7 +185,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex flex-col col-span-3 pt-2">
                   <span className="text-gray-600 text-md font-semi-bold">
-                    {singleService?.name}
+                    Hello
                   </span>
                   <span className="text-gray-400 text-sm inline-block pt-2">
                     Phone
