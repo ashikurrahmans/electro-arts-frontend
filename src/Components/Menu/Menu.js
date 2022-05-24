@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import { themeChange } from "theme-change";
@@ -10,6 +10,7 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 const Menu = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const [bgcolor, setBgColor] = useState(true);
 
   useEffect(() => {
     themeChange(false);
@@ -32,8 +33,8 @@ const Menu = ({ children }) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/services" className="rounded-lg mr-2">
-          Services
+        <NavLink to="/products" className="rounded-lg mr-2">
+          Products
         </NavLink>
       </li>
       <li>
@@ -49,15 +50,15 @@ const Menu = ({ children }) => {
       {user ? (
         <>
           <li>
-            <NavLink to="/dashboard" className="rounded-lg mr-2">
+            <NavLink
+              to="/dashboard"
+              className="rounded-lg mr-2"
+              htmlFor="my-drawer"
+            >
               Dashboard
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to={""} className="rounded-lg mr-2">
-              SignOut
-            </NavLink>
-          </li> */}
+
           <div className="dropdown dropdown-end text-black">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -97,7 +98,7 @@ const Menu = ({ children }) => {
 
       <li>
         <label className="swap swap-rotate">
-          <input type="checkbox" data-toggle-theme="light,dark" />
+          <input type="checkbox" onClick={() => setBgColor(!bgcolor)} />
           <svg
             className="swap-on fill-current w-8 h-8"
             xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +118,7 @@ const Menu = ({ children }) => {
     </>
   );
   return (
-    <div className="drawer">
+    <div className="drawer" data-theme={bgcolor ? "light" : "dark"}>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         <div className="w-full navbar bg-black text-white px-20 py-4">

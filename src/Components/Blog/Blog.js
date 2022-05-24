@@ -1,8 +1,10 @@
 import React from "react";
+import Titles from "../../Hooks/Titles";
 
 const Blog = () => {
   return (
     <div>
+      <Titles title="Blog"></Titles>
       <div className="w-4/5	mt-10 mx-auto">
         <div className="accordion" id="accordionExample ">
           <div className="accordion-item bg-white border border-gray-200">

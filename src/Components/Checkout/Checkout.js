@@ -1,8 +1,10 @@
 import React from "react";
+import Titles from "../../Hooks/Titles";
 
 const Checkout = () => {
   return (
     <div>
+      <Titles title="Checkout Page"></Titles>
       <div>
         <div className="h-screen grid grid-cols-3 mt-5 mb-5">
           <div className="lg:col-span-2 col-span-3 bg-indigo-50 space-y-8 px-12">

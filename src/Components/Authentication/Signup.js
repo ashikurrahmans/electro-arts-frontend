@@ -10,6 +10,7 @@ import {
 import auth from "./../../Firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Titles from "../../Hooks/Titles";
 
 const Signup = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -46,6 +47,7 @@ const Signup = () => {
 
   return (
     <div>
+      <Titles title="SignUP"></Titles>
       <div className="flex items-center min-h-screen p-4 bg-gray-100 lg:justify-center">
         <div className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md">
           <div className="p-4 py-6 text-black bg-orange-50 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">

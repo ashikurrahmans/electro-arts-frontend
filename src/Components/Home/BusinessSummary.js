@@ -8,20 +8,24 @@ const BusinessSummary = () => {
         <div className="bg-white lg:py-12 lg:flex lg:justify-center">
           <div className="py-12 px-6 mt-12 max-w-xl lg:max-w-5xl lg:w-1/2">
             <h2 className="text-3xl text-gray-800 font-bold">
-              Build Your New <span className="text-indigo-600">Idea</span>
+              Safe your home using{" "}
+              <span className="text-indigo-600">Tools</span>
             </h2>
             <p className="mt-4 text-gray-600">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-              modi reprehenderit vitae exercitationem aliquid dolores ullam
-              temporibus enim expedita aperiam mollitia iure consectetur dicta
-              tenetur, porro consequuntur saepe accusantium consequatur.
+              It will send out multiple alarms through sound and light. When the
+              voltage is detected, the tip will send out red light and beep.
+              When the higher the sensed voltage is, or the closer it is to the
+              voltage source, it beeps at a higher frequency. At the same time,
+              the light will be red or yellow, red means high voltage and live
+              wire are detected, yellow means low voltage and null wire are
+              detected.
             </p>
             <div className="mt-8">
               <a
                 href="#"
                 className="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded"
               >
-                Start Now
+                Buy Now
               </a>
             </div>
           </div>

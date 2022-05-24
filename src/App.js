@@ -13,6 +13,10 @@ import SingleProduct from "./Components/Home/Products/SingleProduct";
 import Footer from "./Components/Footer/Footer";
 import Blog from "./Components/Blog/Blog";
 import Checkout from "./Components/Checkout/Checkout";
+import MyOrders from "./Components/Dashboard/MyOrders";
+import AddReview from "./Components/Dashboard/AddReview";
+import MyProfile from "./Components/Dashboard/MyProfile";
+import ProductsComponent from "./Components/ProductsComponent/ProductsComponent";
 
 function App() {
   return (
@@ -25,6 +29,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/products" element={<ProductsComponent />} />
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/blog" element={<Blog></Blog>} />
           <Route
@@ -34,7 +39,12 @@ function App() {
                 <Dashboard />
               </RequiredAuth>
             }
-          />
+          >
+            <Route path="/dashboard" element={<MyOrders />} />
+            <Route path="review" element={<AddReview />} />
+            <Route path="profile" element={<MyProfile />} />
+          </Route>
+
           <Route
             path="product/:id/checkout"
             element={
@@ -45,8 +55,8 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer></Footer>
       </Menu>
-      <Footer></Footer>
     </div>
   );
 }
