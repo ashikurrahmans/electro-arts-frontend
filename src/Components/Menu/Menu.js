@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { themeChange } from "theme-change";
 import logo from "../../assets/images/logo.png";
 import auth from "./../../Firebase.init";
@@ -23,9 +23,9 @@ const Menu = ({ children }) => {
   const menuItems = (
     <>
       <li>
-        <NavLink to="/" className="rounded-lg mr-2">
+        <Link to="/" className="rounded-lg mr-2">
           Home
-        </NavLink>
+        </Link>
       </li>
       <li>
         <NavLink to="/about" className="rounded-lg mr-2">
