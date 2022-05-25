@@ -100,6 +100,13 @@ const SingleProduct = () => {
                   <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
                 </div>
               </div>
+              <div className="mt-10 mb-10">
+                <input
+                  type="number"
+                  placeholder="Stock"
+                  class="input input-bordered w-full max-w-xs"
+                />
+              </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ${fatch?.price}

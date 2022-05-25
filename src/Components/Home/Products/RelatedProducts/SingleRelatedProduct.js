@@ -4,37 +4,34 @@ import { useNavigate } from "react-router-dom";
 const SingleRelatedProduct = ({ product }) => {
   const navigate = useNavigate();
 
-  const { id, name, category, price, img } = product;
+  const { id, name, price, img, category, stock, quantity } = product;
   return (
     <div>
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-6 mx-auto w-60">
-          <a className="block relative h-48 rounded overflow-hidden">
-            <img
-              alt="ecommerce"
-              className="object-cover object-center w-full h-full block"
-              src={img}
-            />
-          </a>
-          <div className="mt-4">
-            <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-              {category}
-            </h3>
-            <h2 className="text-gray-900 title-font text-lg font-medium">
-              {name}
-            </h2>
-            <div className="flex">
-              <p className="mt-1 text-red-600 text-xl font-bold">${price}</p>
-              <button
-                className="ml-16 flex  text-white bg-indigo-500 border-0 py-1 px-6 focus:outline-none hover:bg-indigo-600 rounded"
-                onClick={() => navigate(`/product/${id}`)}
-              >
-                Buy
-              </button>
-            </div>
-          </div>
+      <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10">
+        <div className="px-4 py-2">
+          <h1 className="text-gray-900 font-bold text-3xl uppercase">{name}</h1>
+          <h1 className="text-gray-900 text-xl ">Category : {category}</h1>
+          <h1 className="text-gray-900 text-xl ">Stock : {stock}</h1>
+          <h1 className="text-gray-900 text-xl ">Min Quantity: {quantity}</h1>
+          <p className="text-gray-600 text-sm mt-1">
+            {product?.description.slice(0, 120)}
+          </p>
         </div>
-      </section>
+        <img
+          className="h-56 w-full object-cover mt-2"
+          src={img}
+          alt="NIKE AIR"
+        />
+        <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
+          <h1 className="text-gray-200 font-bold text-xl">${price}</h1>
+          <button
+            className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded"
+            onClick={() => navigate(`/product/${id}`)}
+          >
+            checkout
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

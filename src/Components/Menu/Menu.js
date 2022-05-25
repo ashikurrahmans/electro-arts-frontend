@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { themeChange } from "theme-change";
 import logo from "../../assets/images/logo.png";
 import auth from "./../../Firebase.init";
@@ -19,6 +19,7 @@ const Menu = ({ children }) => {
   const logout = () => {
     signOut(auth);
   };
+  const navigate = useNavigate();
 
   const menuItems = (
     <>
@@ -76,6 +77,16 @@ const Menu = ({ children }) => {
               tabIndex="0"
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60"
             >
+              <li>
+                <span
+                  className="justify-between"
+                  onClick={() => {
+                    navigate("dashboard/profile");
+                  }}
+                >
+                  User Profile
+                </span>
+              </li>
               <li>
                 <span className="justify-between">{user?.displayName}</span>
               </li>

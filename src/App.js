@@ -17,6 +17,7 @@ import MyOrders from "./Components/Dashboard/MyOrders";
 import AddReview from "./Components/Dashboard/AddReview";
 import MyProfile from "./Components/Dashboard/MyProfile";
 import ProductsComponent from "./Components/ProductsComponent/ProductsComponent";
+import Products from "./Products/Products";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/product/:id" element={<SingleProduct />} />
-          <Route path="/products" element={<ProductsComponent />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/blog" element={<Blog></Blog>} />
           <Route

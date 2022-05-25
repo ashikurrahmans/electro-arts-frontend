@@ -1,7 +1,9 @@
 import React from "react";
 import voltage from "../../assets/images/voltage.png";
+import { useNavigate } from "react-router-dom";
 
 const BusinessSummary = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div>
@@ -21,12 +23,13 @@ const BusinessSummary = () => {
               detected.
             </p>
             <div className="mt-8">
-              <a
+              <span
+                onClick={() => navigate("/products")}
                 href="#"
-                className="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded"
+                className=" cursor-pointer bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded"
               >
                 Buy Now
-              </a>
+              </span>
             </div>
           </div>
           <div className="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
