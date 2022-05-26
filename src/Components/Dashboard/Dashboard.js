@@ -1,8 +1,13 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Titles from "../../Hooks/Titles";
+import useAdmin from "./../../Hooks/IsAdmin";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "./../../Firebase.init";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div>
       <Titles title="Dashboard"></Titles>
@@ -22,15 +27,21 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-60  bg-black text-white ">
             {/* <!-- Sidebar content here --> */}
-            <li>
-              <Link to="/dashboard">My Orders</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/review">Add a review</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/profile">My Profile</Link>
-            </li>
+            {!admin ? (
+              <>
+                <li>
+                  <Link to="/dashboard">My Orders</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/review">Add a review</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/profile">My Profile</Link>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
       </div>

@@ -4,20 +4,33 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const UserProfile = () => {
   const [user, loading, error] = useAuthState(auth);
+  console.log(user);
   return (
     <div>
       <div className="min-h-screen flex text-black">
         <div className="bg-indigo-50 flex-grow py-12 px-10">
-          <div className="flex justify-between">
+          <div className="flex justify-between  mb-16">
             <div>
-              <h4 className="text-sm font-bold text-indigo-600">
-                Hi {user.displayName},
-              </h4>
-              <h1 className="text-4xl font-bold text-indigo-900 mt-">
+              <h1 className="text-2xl text-center font-bold text-indigo-900 ">
                 Welcome to Electronic Arts!
               </h1>
             </div>
           </div>
+
+          <div class="card w-3/6 bg-base-100 shadow-xl mx-auto">
+            <figure class="px-10 pt-10">
+              <img src={user.photoURL} alt="Shoes" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h4 className="text-2xl font-bold text-indigo-600">
+                Hi, {user.displayName}
+              </h4>
+              <h4 className="text-lg font-bold text-black">
+                Your Email : {user.email}
+              </h4>
+            </div>
+          </div>
+
           <div>
             <div className="flex space-x-4">
               <div className="flex items-center justify-around p-6 bg-white w-64 rounded-xl space-x-2 mt-10 shadow-lg">
