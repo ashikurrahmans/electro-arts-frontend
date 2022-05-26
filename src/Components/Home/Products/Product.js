@@ -6,16 +6,14 @@ const Product = ({ product }) => {
     product;
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="ml-16">
       <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10">
         <div className="px-4 py-2">
           <h1 className="text-gray-900 font-bold text-3xl uppercase">{name}</h1>
           <h1 className="text-gray-900 text-xl ">Category : {category}</h1>
           <h1 className="text-gray-900 text-xl ">Stock : {stock}</h1>
           <h1 className="text-gray-900 text-xl ">Min Quantity: {quantity}</h1>
-          <p className="text-gray-600 text-sm mt-1">
-            {product?.description.slice(0, 120)}
-          </p>
+          <p className="text-gray-600 text-sm mt-1">{product.description}</p>
         </div>
         <img
           className="h-56 w-full object-cover mt-2"

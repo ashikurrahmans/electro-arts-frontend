@@ -92,6 +92,18 @@ const SingleProduct = () => {
                 </span>
               </div>
               <p className="leading-relaxed">{fatch?.description}</p>
+              <h2 className="leading-relaxed font-bold mt-4 mb-4">
+                Category : {fatch?.category}
+              </h2>
+              <h2 className="leading-relaxed font-bold mt-4 mb-4">
+                Stock : {fatch?.stock}
+              </h2>
+              <h2 className="leading-relaxed font-bold mt-4 mb-4">
+                Min Order : {fatch?.quantity}
+              </h2>
+              <span className="title-font font-medium text-2xl text-red-700">
+                Price : ${fatch?.price}
+              </span>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div className="flex">
                   <span className="mr-3">Color</span>
@@ -108,9 +120,6 @@ const SingleProduct = () => {
                 />
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
-                  ${fatch?.price}
-                </span>
                 <button
                   className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
                   onClick={() => {
