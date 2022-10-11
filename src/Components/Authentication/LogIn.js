@@ -9,6 +9,7 @@ import Loading from "../Shared/Loading";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import auth from "./../../Firebase.init";
 import Titles from "../../Hooks/Titles";
+import useToken from "./../../Hooks/useToken";
 
 const LogIn = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -20,9 +21,12 @@ const LogIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  // Social Media Token Send
+  const [token] = useToken(gUser || user);
+
   const navigate = useNavigate();
   const location = useLocation();
-  let from = location.state || "/";
+  let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     if (user || gUser) {
@@ -48,7 +52,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex h-screen justify-center items-center">
+    <div className="flex h-screen justify-center items-center mt-10 mb-10">
       <Titles title="Login"></Titles>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
@@ -135,12 +139,15 @@ const LogIn = () => {
             </small>
           </p>
           <div className="divider">OR</div>
-          <button
-            onClick={() => signInWithGoogle()}
-            className="btn btn-outline"
-          >
-            Continue with Google
-          </button>
+
+          <div className="text-center">
+            <button
+              onClick={() => signInWithGoogle()}
+              className="btn btn-outline"
+            >
+              Continue with Google
+            </button>
+          </div>
         </div>
       </div>
     </div>

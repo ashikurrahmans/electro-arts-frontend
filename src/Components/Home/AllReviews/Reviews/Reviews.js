@@ -1,9 +1,11 @@
 import React from "react";
 import useReviews from "./../UseReview/useReviews";
 import Review from "./../Review/Review";
+import { useLocation } from "react-router-dom";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useReviews();
+  const location = useLocation();
+  const [reviews] = useReviews();
   return (
     <>
       <h5 className="text-center text-gray-900 font-bold text-4xl tracking-tight mt-6 capitalize">
@@ -14,9 +16,15 @@ const Reviews = () => {
         customer happy.
       </p>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3 mt-4 mb-5 ml-10 mr-10 ">
-        {reviews.map((review) => (
-          <Review review={review} key={review.id}></Review>
-        ))}
+        {location.pathname === "/"
+          ? reviews
+              .slice(0, 4)
+              .map((review) => (
+                <Review review={review} key={review.id}></Review>
+              ))
+          : reviews.map((review) => (
+              <Review review={review} key={review.id}></Review>
+            ))}
       </div>
     </>
   );

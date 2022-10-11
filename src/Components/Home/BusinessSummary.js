@@ -32,7 +32,7 @@ const BusinessSummary = () => {
               </span>
             </div>
           </div>
-          <div className="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
+          <div className=" lg:mx-8 lg:flex lg:max-w-5xl">
             <img src={voltage} alt="" />
           </div>
         </div>

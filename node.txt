@@ -1,0 +1,7 @@
+1: Product Home/Proudct Page Reload  (done)
+2: Blog Single Page option
+3: Implement AddToCart Option 
+4: Contact Form Validation 
+5: dashboard table Texts should be show 
+6: profile pic should be show 
+7:  

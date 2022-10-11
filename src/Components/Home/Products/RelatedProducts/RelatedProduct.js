@@ -15,7 +15,7 @@ const RelatedProduct = ({ id }) => {
   console.log(relatedProducts);
 
   return (
-    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5 ml-16">
+    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5 mx-10">
       {relatedProducts.slice(0, 4).map((item) => {
         return (
           <SingleRelatedProduct

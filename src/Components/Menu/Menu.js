@@ -8,8 +8,8 @@ import auth from "./../../Firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Menu = ({ children }) => {
-  const [user, loading, error] = useAuthState(auth);
-  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const [user] = useAuthState(auth);
+  const [, guser] = useSignInWithGoogle(auth);
   const [bgcolor, setBgColor] = useState(true);
 
   useEffect(() => {

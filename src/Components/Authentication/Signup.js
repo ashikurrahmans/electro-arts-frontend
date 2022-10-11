@@ -2,11 +2,7 @@ import React, { useEffect } from "react";
 import logo from "../../assets/images/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {
-  useAuthState,
-  useSendEmailVerification,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "./../../Firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,8 +11,7 @@ import Titles from "../../Hooks/Titles";
 const Signup = () => {
   const [user, loading, error] = useAuthState(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-  const [sendEmailVerification, sending, verror] =
-    useSendEmailVerification(auth);
+
   const navigate = useNavigate();
 
   const signupHandle = (e) => {
@@ -137,12 +132,20 @@ const Signup = () => {
                 <span className="h-px bg-gray-400 w-14"></span>
               </span>
               <div className="flex flex-col space-y-4">
-                <span
+                {/* <span
                   onClick={() => signInWithGoogle()}
                   className="cursor-pointer flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-[#287AE6] focus:outline-none hover:text-white"
                 >
                   Google
-                </span>
+                </span> */}
+                <div className="text-center">
+                  <button
+                    onClick={() => signInWithGoogle()}
+                    className="btn btn-outline"
+                  >
+                    Continue with Google
+                  </button>
+                </div>
               </div>
             </div>
           </div>

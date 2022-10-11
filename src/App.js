@@ -16,48 +16,77 @@ import Checkout from "./Components/Checkout/Checkout";
 import MyOrders from "./Components/Dashboard/MyOrders";
 import AddReview from "./Components/Dashboard/AddReview";
 import MyProfile from "./Components/Dashboard/MyProfile";
-import ProductsComponent from "./Components/ProductsComponent/ProductsComponent";
 import Products from "./Products/Products";
+import { useEffect, useState } from "react";
+import GridLoader from "react-spinners/GridLoader";
+
+const override = {
+  paddingTop: "350px",
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  let [color, setColor] = useState("green");
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div>
-      <Menu>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/forgetpassword" element={<ForgetPassword />} />
-          <Route path="/product/:id" element={<SingleProduct />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact></Contact>} />
-          <Route path="/blog" element={<Blog></Blog>} />
-          <Route
-            path="/dashboard"
-            element={
-              <RequiredAuth>
-                <Dashboard />
-              </RequiredAuth>
-            }
-          >
-            <Route path="/dashboard" element={<MyOrders />} />
-            <Route path="review" element={<AddReview />} />
-            <Route path="profile" element={<MyProfile />} />
-          </Route>
+      {loading ? (
+        <GridLoader
+          color={color}
+          loading={loading}
+          cssOverride={override}
+          size={30}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      ) : (
+        <Menu>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgetpassword" element={<ForgetPassword />} />
+            <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact></Contact>} />
+            <Route path="/blog" element={<Blog></Blog>} />
+            <Route
+              path="/dashboard"
+              element={
+                <RequiredAuth>
+                  <Dashboard />
+                </RequiredAuth>
+              }
+            >
+              <Route path="/dashboard" element={<MyOrders />} />
+              <Route path="review" element={<AddReview />} />
+              <Route path="profile" element={<MyProfile />} />
+            </Route>
 
-          <Route
-            path="product/:id/checkout"
-            element={
-              <RequiredAuth>
-                <Checkout />
-              </RequiredAuth>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer></Footer>
-      </Menu>
+            <Route
+              path="product/:id/checkout"
+              element={
+                <RequiredAuth>
+                  <Checkout />
+                </RequiredAuth>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer></Footer>
+        </Menu>
+      )}
     </div>
   );
 }

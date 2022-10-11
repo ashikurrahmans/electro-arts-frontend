@@ -1,11 +1,10 @@
-import React from "react";
 import IconsCard from "./IconsCard";
 import Reviews from "./AllReviews/Reviews/Reviews";
 import AllProducts from "./Products/AllProducts";
 import BusinessSummary from "./BusinessSummary";
 import Heros from "./Heros";
-import BlogHome from "./BlogHome";
 import Titles from "../../Hooks/Titles";
+import BlogFetch from "../Blog/BlogFetch";
 
 const Home = () => {
   return (
@@ -16,7 +15,7 @@ const Home = () => {
         <AllProducts></AllProducts>
         <BusinessSummary></BusinessSummary>
         <IconsCard></IconsCard>
-        <BlogHome></BlogHome>
+        <BlogFetch></BlogFetch>
         <Reviews></Reviews>
       </div>
     </div>

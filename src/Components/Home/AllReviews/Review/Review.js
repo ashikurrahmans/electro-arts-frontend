@@ -13,7 +13,7 @@ const Review = (props) => {
             <img
               className="mb-3 w-18 h-16 rounded-full shadow-lg mr-6"
               src={image}
-              alt="Bonnie image"
+              alt="Bonnie"
             />
 
             <div>
