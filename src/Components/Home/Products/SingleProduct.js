@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import BreadCrumbs from "../../Shared/BreadCrumbs";
 import RelatedProduct from "./RelatedProducts/RelatedProduct";
 
 const SingleProduct = () => {
@@ -19,18 +20,23 @@ const SingleProduct = () => {
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <img
-              alt="ecommerce"
-              className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-              src={fatch?.img}
-            />
+            <div>
+              <BreadCrumbs></BreadCrumbs>
+              <img
+                alt="ecommerce"
+                className="lg:w-full w-96 lg:h-96 mt-6 shadow-lg rounded-lg max-w-md  bg-gray-900 p-1"
+                src={fatch?.img}
+              />
+            </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 {fatch?.category}
               </h2>
+
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                 {fatch?.name}
               </h1>
+
               <div className="flex mb-4">
                 <span className="flex items-center">
                   <svg
@@ -92,15 +98,11 @@ const SingleProduct = () => {
                 </span>
               </div>
               <p className="leading-relaxed">{fatch?.description}</p>
-              <h2 className="leading-relaxed font-bold mt-4 mb-4">
-                Category : {fatch?.category}
-              </h2>
-              <h2 className="leading-relaxed font-bold mt-4 mb-4">
-                Stock : {fatch?.stock}
-              </h2>
-              <h2 className="leading-relaxed font-bold mt-4 mb-4">
-                Min Order : {fatch?.quantity}
-              </h2>
+              <div className="my-2">
+                <li className="text-sm">Category : {fatch?.category}</li>
+                <li className="text-sm ">Stock : {fatch?.stock}</li>
+                <li className="text-sm">Min Order : {fatch?.quantity}</li>
+              </div>
               <span className="title-font font-medium text-2xl text-red-700">
                 Price : ${fatch?.price}
               </span>
@@ -111,23 +113,38 @@ const SingleProduct = () => {
                   <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
                   <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
                 </div>
+
+                <select
+                  id="countries"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-50 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-8"
+                >
+                  <option selected disabled>
+                    Choose Size
+                  </option>
+                  <option value="sm">SM</option>
+                  <option value="extrasm">Extra SM</option>
+                  <option value="large">Large</option>
+                  <option value="extralarge">Extra Large</option>
+                </select>
               </div>
-              <div className="mt-10 mb-10">
-                <input
-                  type="number"
-                  placeholder="Stock"
-                  class="input input-bordered w-full max-w-xs"
-                />
-              </div>
+
               <div className="flex">
                 <button
-                  className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                  type="button"
+                  class="h-12 mr-4 px-6 py-1 font-semibold bg-indigo-600 hover:bg-indigo-500 text-white"
+                >
+                  Add to Cart
+                </button>
+                <button
+                  type="button"
+                  class="h-12 mr-4 px-6 py-1 font-semibold  bg-black text-white"
                   onClick={() => {
                     navigate(`/product/${id}/checkout`);
                   }}
                 >
-                  Checkout
+                  Buy Now
                 </button>
+
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
