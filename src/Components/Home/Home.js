@@ -9,7 +9,7 @@ import BlogFetch from "../Blog/BlogFetch";
 const Home = () => {
   return (
     <div>
-      <Titles title="Home"></Titles>
+      <Titles title="Choose Your Best Electronic Devices | Home "></Titles>
       <Heros></Heros>
       <div className="container mx-auto">
         <AllProducts></AllProducts>
