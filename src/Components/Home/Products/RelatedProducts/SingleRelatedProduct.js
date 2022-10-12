@@ -33,7 +33,8 @@ const SingleRelatedProduct = ({ product }) => {
                 <img
                   src={img}
                   alt="Just a flower"
-                  className="w-full object-fill rounded-2xl h-56"
+                  className="w-full object-fill rounded-2xl h-56 cursor-pointer"
+                  onClick={() => navigate(`/product/${id}`)}
                 />
               </div>
               <div className="flex-auto justify-evenly">
@@ -53,7 +54,10 @@ const SingleRelatedProduct = ({ product }) => {
                     <span className="mr-2 text-gray-400">India</span>
                   </div>
                   <div className="flex items-center w-full justify-between min-w-0 ">
-                    <h2 className="text-lg mr-auto cursor-pointer text-gray-200 hover:text-purple-500 truncate ">
+                    <h2
+                      className="text-lg mr-auto cursor-pointer text-gray-200 hover:text-purple-500 truncate "
+                      onClick={() => navigate(`/product/${id}`)}
+                    >
                       {name}
                     </h2>
                     <div className="flex items-center bg-green-400 text-white text-xs px-2 py-1 ml-3 rounded-lg">

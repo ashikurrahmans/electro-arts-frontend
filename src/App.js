@@ -19,6 +19,7 @@ import MyProfile from "./Components/Dashboard/MyProfile";
 import Products from "./Products/Products";
 import { useEffect, useState } from "react";
 import GridLoader from "react-spinners/GridLoader";
+import MiddleCart from "./Components/AddToCart/MiddleCart";
 
 const override = {
   paddingTop: "350px",
@@ -85,6 +86,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer></Footer>
+          <MiddleCart></MiddleCart>
         </Menu>
       )}
     </div>

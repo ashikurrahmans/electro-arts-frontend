@@ -6,6 +6,7 @@ import { themeChange } from "theme-change";
 import logo from "../../assets/images/logo.png";
 import auth from "./../../Firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { FaShoppingBag } from "react-icons/fa";
 
 const Menu = ({ children }) => {
   const [user] = useAuthState(auth);
@@ -132,7 +133,7 @@ const Menu = ({ children }) => {
     <div className="drawer" data-theme={bgcolor ? "light" : "dark"}>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
-        <div className="w-full navbar bg-black text-white px-20 py-4">
+        <div className="w-full navbar bg-black text-white px-20 py-10">
           <div className="flex-1 px-2 mx-2">
             <a href="/">
               <img src={logo} alt="" className="w-52" />
